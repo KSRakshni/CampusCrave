@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CampusCrave | Menu</title>
+
+<link rel="stylesheet" href="menu.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+<h2>🍔 CampusCrave</h2>
+
+<div class="search">
+
+<i class="fa fa-search"></i>
+
+<input
+type="text"
+id="search"
+placeholder="Search Food..."
+onkeyup="searchFood()">
+
+</div>
+
+<div class="icons">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+<i class="fa-solid fa-user"></i>
+
+</div>
+
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<h1>Today's Delicious Menu</h1>
+
+<p>
+
+Fresh • Healthy • Affordable
+
+</p>
+
+</section>
+
+<!-- ================= CATEGORY ================= -->
+
+<section class="category">
+
+<button onclick="filterFood('all')">All</button>
+
+<button onclick="filterFood('pizza')">Pizza</button>
+
+<button onclick="filterFood('burger')">Burger</button>
+
+<button onclick="filterFood('meal')">Meals</button>
+
+<button onclick="filterFood('snack')">Snacks</button>
+
+<button onclick="filterFood('drink')">Drinks</button>
+
+<button onclick="filterFood('dessert')">Desserts</button>
+
+</section>
+
+<!-- ================= MENU ================= -->
+
+<section class="menu">
+
+<!-- 1 -->
+
+<div class="food-card pizza">
+
+<img src="https://www.foodandwine.com/thmb/7BpSJWDh1s-2M2ooRPHoy07apq4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/mozzarella-pizza-margherita-FT-RECIPE0621-11fa41ceb1a5465d9036a23da87dd3d4.jpg">
+
+<h3>Margherita Pizza</h3>
+
+<p>₹180</p>
+
+<span>⭐⭐⭐⭐☆</span>
+
+<button>Add to Cart</button>
+
+</div>
+
+<!-- 2 -->
+
+<div class="food-card pizza">
+
+<img src="https://www.cupofzest.com/wp-content/uploads/2025/05/Veggie-Lovers-Pizza-Horizontal-Web.jpg">
+
+<h3>Veg Supreme Pizza</h3>
+
+<p>₹220</p>
+
+<span>⭐⭐⭐⭐⭐</span>
+
+<button>Add to Cart</button>
+
+</div>
+
+<!-- 3 -->
+
+<div class="food-card pizza">
+
+<img src="https://images.raasakarts.com/insecure/fit/1000/1000/ce/0/plain/https://raasakarts.s3.ap-south-1.amazonaws.com/3fa229/prods/BBIrfQULepacqA8jkktm7OffO7p1ph1MavlZ58TF.jpg@webp">
+
+<h3>Farmhouse Pizza</h3>
+
+<p>₹240</p>
+
+<span>⭐⭐⭐⭐☆</span>
+
+<button>Add to Cart</button>
+
+</div>
+
+<!-- 4 -->
+
+<div class="food-card pizza">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST6In06tXlXQn-ZLOOUCWlzi6dOS4LMuHLuP1AS_0XLw&s=10">
+
+<h3>Paneer Tikka Pizza</h3>
+
+<p>₹260</p>
+
+<span>⭐⭐⭐⭐⭐</span>
+
+<button>Add to Cart</button>
+
+</div>
+
+<!-- 5 -->
+
+<div class="food-card burger">
+
+<img src="https://damndelicious.net/wp-content/uploads/2022/08/220602_DD_Best-Ever-Cheeseburger_267.jpg">
+
+<h3>Cheese Burger</h3>
+
+<p>₹120</p>
+
+<span>⭐⭐⭐⭐⭐</span>
+
+<button>Add to Cart</button>
+
+</div>
+
+<!-- 6 -->
+
+<div class="food-card burger">
+
+<img src="https://www.vegrecipesofindia.com/wp-content/uploads/2020/12/burger-recipe-1.jpg">
+
+<h3>Veg Burger</h3>
+
+<p>₹100</p>
+
+<span>⭐⭐⭐⭐☆</span>
+
+<button>Add to Cart</button>
+
+</div>
+
+<!-- 7 -->
+
+<div class="food-card burger">
+
+<img src="https://thescranline.com/wp-content/uploads/2022/02/crispy-chicken-burger-WEB-01.jpg">
+
+<h3>Crispy Burger</h3>
+
+<p>₹140</p>
+
+<span>⭐⭐⭐⭐☆</span>
+
+<button>Add to Cart</button>
+
+</div>
+
+<!-- 8 -->
+
+<div class="food-card burger">
+
+<img src="https://cdn.uengage.io/uploads/6670/image-257742-1677054193.jpeg">
+
+<h3>Double Patty Burger</h3>
+
+<p>₹180</p>
+
+<span>⭐⭐⭐⭐⭐</span>
+
+<button>Add to Cart</button>
+
+</div>
+
+<!-- 9 -->
+
+<div class="food-card meal">
+
+<img src="https://rakskitchen.net/wp-content/uploads/2013/08/9634876480_20d7ac8196_o.jpg">
+
+<h3>South Indian Meals</h3>
+
+<p>₹120</p>
+
+<span>⭐⭐⭐⭐⭐</span>
+
+<button>Add to Cart</button>
+
+</div>
+
+<!-- 10 -->
+
+<div class="food-card meal">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL1PqHNEUb-hIerXShbmmHgQ-O9Jcoi9T2QMjtMQXLvA&s=10">
+
+<h3>Veg Fried Rice</h3>
+
+<p>₹140</p>
+
+<span>⭐⭐⭐⭐☆</span>
+
+<button>Add to Cart</button>
+
+</div>
+<!-- ================= FOOD ITEMS 11 - 20 ================= -->
+
+<!-- 11 -->
+
+<div class="food-card meal">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7-gNbx6xLHM7i6BgQ3hXXlOuBctvomEkBwnk0L8T0yBG5VVnKGxtX7mo&s=10" alt="Paneer Biryani">
+
+    <h3>Paneer Biryani</h3>
+
+    <p>₹180</p>
+
+    <span>⭐⭐⭐⭐⭐</span>
+
+    <button onclick="addToCart('Paneer Biryani',180)">
+        Add to Cart
+    </button>
+
+</div>
+
+<!-- 12 -->
+
+<div class="food-card meal">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqdOlvEGSzmRQTxKe5cBvPYX-MFLIuxHa6OMEW5Vg6sw&s=10" alt="Lemon Rice">
+
+    <h3>Lemon Rice</h3>
+
+    <p>₹100</p>
+
+    <span>⭐⭐⭐⭐☆</span>
+
+    <button onclick="addToCart('Lemon Rice',100)">
+        Add to Cart
+    </button>
+
+</div>
+
+<!-- 13 -->
+
+<div class="food-card meal">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4RdpUbH9cMFqWHoEwIH58SN-D4TLwyVluXWSgQsKb1Q&s=10" alt="Curd Rice">
+
+    <h3>Curd Rice</h3>
+
+    <p>₹90</p>
+
+    <span>⭐⭐⭐⭐☆</span>
+
+    <button onclick="addToCart('Curd Rice',90)">
+        Add to Cart
+    </button>
+
+</div>
+
+<!-- 14 -->
+
+<div class="food-card sandwich">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG1MnCDj3Jqx3IxvkyH12kcfzyH41Q3pMcApLlDtXsz5LV1u802JenTZ-K&s=10" alt="Veg Sandwich">
+
+    <h3>Veg Sandwich</h3>
+
+    <p>₹90</p>
+
+    <span>⭐⭐⭐⭐☆</span>
+
+    <button onclick="addToCart('Veg Sandwich',90)">
+        Add to Cart
+    </button>
+
+</div>
+
+<!-- 15 -->
+
+<div class="food-card sandwich">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRFYyhiddYooyY75wTaXhj35iPPCFxpfaKzoi88PlDBg&s=10" alt="Grilled Cheese Sandwich">
+
+    <h3>Grilled Cheese Sandwich</h3>
+
+    <p>₹130</p>
+
+    <span>⭐⭐⭐⭐⭐</span>
+
+    <button onclick="addToCart('Grilled Cheese Sandwich',130)">
+        Add to Cart
+    </button>
+
+</div>
+
+<!-- 16 -->
+
+<div class="food-card sandwich">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7NUmLKC49DFdWbDQi7Pi1Yvlhxg9xlnQJjSW5wfSMpLGnNRPUsgfrca35&s=10" alt="Club Sandwich">
+
+    <h3>Club Sandwich</h3>
+
+    <p>₹150</p>
+
+    <span>⭐⭐⭐⭐⭐</span>
+
+    <button onclick="addToCart('Club Sandwich',150)">
+        Add to Cart
+    </button>
+
+</div>
+
+<!-- 17 -->
+
+<div class="food-card snack">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaJh4LMndUcaTiWLYIZMxc41dXfF7n1v3_-GVC4DLVWK4urLJTyiZO6_2UIjIqNFx61LKpLa4OhjKvJe3aeHi7T4Tsd175eXbQzqs_Oxop&s=10" alt="French Fries">
+
+    <h3>French Fries</h3>
+
+    <p>₹80</p>
+
+    <span>⭐⭐⭐⭐☆</span>
+
+    <button onclick="addToCart('French Fries',80)">
+        Add to Cart
+    </button>
+
+</div>
+
+<!-- 18 -->
+
+<div class="food-card snack">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJC5j53PetYmOMh1TjJHxc-CzemlQS0wdgjiLj1V4PCw&s=10" alt="Samosa">
+
+    <h3>Samosa (2 pcs)</h3>
+
+    <p>₹40</p>
+
+    <span>⭐⭐⭐⭐☆</span>
+
+    <button onclick="addToCart('Samosa',40)">
+        Add to Cart
+    </button>
+
+</div>
+
+<!-- 19 -->
+
+<div class="food-card snack">
+
+    <img src="https://shwetainthekitchen.com/wp-content/uploads/2014/12/Veg-Puff-500x500.jpg" alt="Veg Puff">
+
+    <h3>Veg Puff</h3>
+
+    <p>₹35</p>
+
+    <span>⭐⭐⭐⭐☆</span>
+
+    <button onclick="addToCart('Veg Puff',35)">
+        Add to Cart
+    </button>
+
+</div>
+
+<!-- 20 -->
+
+<div class="food-card snack">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7qGNxpQtWUWEjjxU3cqH0DA5WE4SR-Iw-RNtDG6PnpXInmS97EeAvCDqQrghkxRzHtRezhtalwsOyWbYkIwxbqhwvNn0WDDYJ2n9MWS09wA&s=10" alt="Spring Rolls">
+
+    <h3>Spring Rolls</h3>
+
+    <p>₹120</p>
+
+    <span>⭐⭐⭐⭐⭐</span>
+
+    <button onclick="addToCart('Spring Rolls',120)">
+        Add to Cart
+    </button>
+
+</div>
+<!-- ================= FOOD ITEMS 21 - 25 ================= -->
+
+<!-- 21 -->
+
+<div class="food-card drink">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP-rALwAswTdLkgG9yQ5qgUyFG-ZbZxUDJfnvDpJSSQQ&s=10" alt="Cold Coffee">
+
+    <h3>Cold Coffee</h3>
+
+    <p>₹90</p>
+
+    <span>⭐⭐⭐⭐⭐</span>
+
+    <button onclick="addToCart('Cold Coffee',90)">
+        Add to Cart
+    </button>
+
+</div>
+
+<!-- 22 -->
+
+<div class="food-card drink">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5jqPiwuFirnXEsHX8SjjL03NLA7SfKCbAyKWn3933IA&s=10" alt="Fresh Lime Juice">
+
+    <h3>Fresh Lime Juice</h3>
+
+    <p>₹60</p>
+
+    <span>⭐⭐⭐⭐☆</span>
+
+    <button onclick="addToCart('Fresh Lime Juice',60)">
+        Add to Cart
+    </button>
+
+</div>
+
+<!-- 23 -->
+
+<div class="food-card drink">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5GcxoQxY800SHP7mDWTRi6S320sfcOC1TWR2p6-C5ig&s=10" alt="Mango Milkshake">
+
+    <h3>Mango Milkshake</h3>
+
+    <p>₹110</p>
+
+    <span>⭐⭐⭐⭐⭐</span>
+
+    <button onclick="addToCart('Mango Milkshake',110)">
+        Add to Cart
+    </button>
+
+</div>
+
+<!-- 24 -->
+
+<div class="food-card dessert">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyCfzf0WQMRCDlsKUKX9FHi-HMx7ieT9CwhB9tI2Xpfpe7sJk6b2dOlAO33NmX5HIh_71eURGezT-4m-PWhCgn9AlTmcLN2h5BGMI1b5Q3&s=10" alt="Chocolate Brownie">
+
+    <h3>Chocolate Brownie</h3>
+
+    <p>₹90</p>
+
+    <span>⭐⭐⭐⭐⭐</span>
+
+    <button onclick="addToCart('Chocolate Brownie',90)">
+        Add to Cart
+    </button>
+
+</div>
+
+<!-- 25 -->
+
+<div class="food-card dessert">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQahQVp1Ees5fvHN_VXHSMX7f_t5UxA4XNY1eaoppPBiw&s=10" alt="Vanilla Ice Cream">
+
+    <h3>Vanilla Ice Cream</h3>
+
+    <p>₹70</p>
+
+    <span>⭐⭐⭐⭐☆</span>
+
+    <button onclick="addToCart('Vanilla Ice Cream',70)">
+        Add to Cart
+    </button>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <h2>🍔 CampusCrave</h2>
+
+        <p>
+            Smart Campus Food Ordering System
+        </p>
+
+        <p>
+            Fresh Food • Fast Delivery • Zero Queue
+        </p>
+
+        <div class="footer-links">
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="menu.html">Menu</a>
+
+            <a href="cart.html">Cart</a>
+
+            <a href="orders.html">Orders</a>
+
+        </div>
+
+        <p class="copyright">
+
+            © 2026 CampusCrave | Developed by
+            <strong>K.S. Rakshni & Harini.T</strong>
+
+        </p>
+
+    </div>
+
+</footer>
+
+<script src="menu.js"></script>
+
+</body>
+
+</html>

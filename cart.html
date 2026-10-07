@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - CampusCrave</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">CampusCrave</div>
+
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="menu.html">Menu</a>
+            <a href="orders.html">My Orders</a>
+        </div>
+
+        <div class="nav-right">
+            <a href="cart.html" class="cart-link">
+                🛒 Cart
+                <span id="cartCount">0</span>
+            </a>
+
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+
+    <!-- CART SECTION -->
+    <main class="cart-container">
+
+        <div class="page-heading">
+            <h1>🛒 Your Cart</h1>
+            <p>Review your items before placing your order.</p>
+        </div>
+
+
+        <!-- CART CONTENT -->
+        <div id="cartContent">
+
+            <div id="cartItems" class="cart-items">
+                <!-- Cart items will appear here -->
+            </div>
+
+
+            <!-- CART SUMMARY -->
+            <div class="cart-summary">
+
+                <h2>Order Summary</h2>
+
+                <div class="summary-row">
+                    <span>Items</span>
+                    <span id="summaryItems">0</span>
+                </div>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>₹<span id="subtotal">0.00</span></span>
+                </div>
+
+                <div class="summary-row">
+                    <span>Delivery Fee</span>
+                    <span>₹<span id="deliveryFee">0.00</span></span>
+                </div>
+
+                <hr>
+
+                <div class="summary-total">
+                    <span>Total</span>
+                    <span>₹<span id="totalPrice">0.00</span></span>
+                </div>
+
+                <button class="checkout-btn" onclick="proceedToPayment()">
+                    Proceed to Payment →
+                </button>
+
+                <button class="clear-btn" onclick="clearCart()">
+                    Clear Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- EMPTY CART -->
+        <div id="emptyCart" class="empty-cart">
+
+            <div class="empty-icon">🛒</div>
+
+            <h2>Your cart is empty</h2>
+
+            <p>
+                Looks like you haven't added anything to your cart yet.
+            </p>
+
+            <button onclick="goToMenu()">
+                Browse Menu
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 CampusCrave | Smart Campus Food Ordering</p>
+    </footer>
+
+
+    <script src="cart.js"></script>
+
+</body>
+</html>

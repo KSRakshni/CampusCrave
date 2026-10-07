@@ -1,0 +1,21 @@
+order_id,user_id,item_name,category,quantity,rating
+1001,1,South Indian Meals,meal,1,5
+1001,1,Cold Coffee,drink,1,4
+1002,2,Cheese Burger,burger,2,5
+1002,2,French Fries,snack,1,5
+1003,3,Paneer Biryani,meal,1,5
+1003,3,Mango Milkshake,drink,1,4
+1004,1,South Indian Meals,meal,1,5
+1004,1,Chocolate Brownie,dessert,1,5
+1005,4,Veg Burger,burger,1,4
+1005,4,French Fries,snack,2,5
+1006,2,Cheese Burger,burger,1,4
+1006,2,Margherita Pizza,pizza,1,4
+1007,5,Veg Fried Rice,meal,1,5
+1007,5,Fresh Lime Juice,drink,1,4
+1008,3,Paneer Biryani,meal,1,5
+1008,3,French Fries,snack,1,4
+1009,4,Cheese Burger,burger,1,5
+1009,4,Cold Coffee,drink,1,5
+1010,5,South Indian Meals,meal,1,4
+1010,5,Vanilla Ice Cream,dessert,1,4

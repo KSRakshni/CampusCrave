@@ -1,0 +1,25 @@
+text,sentiment
+The food was fresh and delicious,Positive
+Quick service and a generous portion,Positive
+Loved the crispy fries,Positive
+Excellent lunch at a fair price,Positive
+The burger tasted wonderful,Positive
+Warm food and friendly service,Positive
+The biryani was flavorful,Positive
+Really happy with this order,Positive
+The meal was cold and disappointing,Negative
+My order arrived very late,Negative
+The fries were soggy and stale,Negative
+Poor portion for the price,Negative
+The burger was undercooked,Negative
+I received the wrong item,Negative
+The drink was warm and watered down,Negative
+Not worth ordering again,Negative
+The order was as expected,Neutral
+Food arrived in the usual time,Neutral
+The portion size was average,Neutral
+I ordered a meal and a drink,Neutral
+The menu has several choices,Neutral
+The item was available today,Neutral
+Service was neither fast nor slow,Neutral
+The packaging was standard,Neutral

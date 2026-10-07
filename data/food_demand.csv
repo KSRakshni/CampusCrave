@@ -1,0 +1,79 @@
+item_name,day_of_week,hour,is_weekend,price,quantity
+Margherita Pizza,Monday,10,0,180,3
+Margherita Pizza,Monday,13,0,180,13
+Margherita Pizza,Tuesday,12,0,180,11
+Margherita Pizza,Wednesday,18,0,180,8
+Margherita Pizza,Saturday,13,1,180,18
+Margherita Pizza,Sunday,17,1,180,12
+Veg Supreme Pizza,Monday,12,0,220,7
+Veg Supreme Pizza,Tuesday,13,0,220,10
+Veg Supreme Pizza,Thursday,14,0,220,6
+Veg Supreme Pizza,Friday,18,0,220,11
+Veg Supreme Pizza,Saturday,13,1,220,15
+Veg Supreme Pizza,Sunday,12,1,220,13
+Farmhouse Pizza,Monday,13,0,240,6
+Farmhouse Pizza,Tuesday,18,0,240,9
+Farmhouse Pizza,Wednesday,12,0,240,8
+Farmhouse Pizza,Friday,13,0,240,10
+Farmhouse Pizza,Saturday,14,1,240,13
+Farmhouse Pizza,Sunday,18,1,240,11
+Paneer Tikka Pizza,Monday,12,0,260,5
+Paneer Tikka Pizza,Wednesday,13,0,260,8
+Paneer Tikka Pizza,Thursday,18,0,260,7
+Paneer Tikka Pizza,Friday,14,0,260,9
+Paneer Tikka Pizza,Saturday,13,1,260,12
+Paneer Tikka Pizza,Sunday,13,1,260,10
+Cheese Burger,Monday,11,0,120,12
+Cheese Burger,Tuesday,13,0,120,18
+Cheese Burger,Wednesday,17,0,120,13
+Cheese Burger,Thursday,12,0,120,19
+Cheese Burger,Saturday,13,1,120,24
+Cheese Burger,Sunday,18,1,120,16
+Veg Burger,Monday,12,0,100,15
+Veg Burger,Tuesday,17,0,100,12
+Veg Burger,Wednesday,13,0,100,20
+Veg Burger,Friday,12,0,100,22
+Veg Burger,Saturday,14,1,100,25
+Veg Burger,Sunday,13,1,100,18
+South Indian Meals,Monday,12,0,120,26
+South Indian Meals,Tuesday,13,0,120,23
+South Indian Meals,Wednesday,12,0,120,28
+South Indian Meals,Thursday,13,0,120,24
+South Indian Meals,Saturday,12,1,120,18
+South Indian Meals,Sunday,13,1,120,16
+Veg Fried Rice,Monday,13,0,140,16
+Veg Fried Rice,Tuesday,12,0,140,20
+Veg Fried Rice,Thursday,13,0,140,18
+Veg Fried Rice,Friday,18,0,140,15
+Veg Fried Rice,Saturday,13,1,140,20
+Veg Fried Rice,Sunday,12,1,140,17
+Paneer Biryani,Monday,12,0,180,18
+Paneer Biryani,Tuesday,13,0,180,21
+Paneer Biryani,Wednesday,14,0,180,15
+Paneer Biryani,Friday,12,0,180,24
+Paneer Biryani,Saturday,13,1,180,22
+Paneer Biryani,Sunday,14,1,180,19
+Lemon Rice,Monday,12,0,100,17
+Lemon Rice,Tuesday,13,0,100,14
+Lemon Rice,Wednesday,12,0,100,18
+Lemon Rice,Thursday,14,0,100,13
+Lemon Rice,Saturday,12,1,100,12
+Lemon Rice,Sunday,13,1,100,11
+French Fries,Monday,16,0,80,17
+French Fries,Tuesday,17,0,80,20
+French Fries,Wednesday,13,0,80,14
+French Fries,Friday,16,0,80,23
+French Fries,Saturday,17,1,80,27
+French Fries,Sunday,16,1,80,21
+Cold Coffee,Monday,10,0,90,15
+Cold Coffee,Tuesday,11,0,90,18
+Cold Coffee,Wednesday,16,0,90,19
+Cold Coffee,Thursday,17,0,90,14
+Cold Coffee,Saturday,11,1,90,23
+Cold Coffee,Sunday,16,1,90,20
+Chocolate Brownie,Monday,14,0,90,9
+Chocolate Brownie,Tuesday,17,0,90,13
+Chocolate Brownie,Wednesday,14,0,90,11
+Chocolate Brownie,Friday,16,0,90,15
+Chocolate Brownie,Saturday,15,1,90,18
+Chocolate Brownie,Sunday,16,1,90,14

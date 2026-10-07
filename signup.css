@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7eee6;
+    color: #3d2618;
+}
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    gap: 80px;
+}
+
+.auth-left {
+    max-width: 450px;
+}
+
+.auth-left h1 {
+    font-size: 42px;
+    color: #6b4329;
+    margin-bottom: 30px;
+}
+
+.auth-left h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.auth-left p {
+    line-height: 1.7;
+    color: #725846;
+}
+
+.auth-food {
+    font-size: 70px;
+    margin-top: 40px;
+}
+
+.auth-box {
+    width: 430px;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.auth-box h2 {
+    font-size: 30px;
+}
+
+.subtitle {
+    color: #806451;
+    margin: 8px 0 25px;
+}
+
+form label {
+    display: block;
+    margin: 15px 0 7px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d5c2b2;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+}
+
+input:focus {
+    border-color: #6b4329;
+}
+
+.password-box {
+    display: flex;
+    border: 1px solid #d5c2b2;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.password-box input {
+    border: none;
+}
+
+.password-box button {
+    border: none;
+    background: white;
+    padding: 0 12px;
+    cursor: pointer;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: #6b4329;
+    color: white;
+    border-radius: 8px;
+    margin-top: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.auth-btn:hover {
+    background: #8a5a38;
+}
+
+.bottom-text {
+    text-align: center;
+    margin-top: 20px;
+    color: #725846;
+}
+
+.bottom-text a {
+    color: #6b4329;
+    font-weight: bold;
+}
+
+.back-home {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #6b4329;
+}
+
+@media(max-width: 800px) {
+
+    .auth-container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+    }
+
+    .auth-left {
+        text-align: center;
+    }
+
+    .auth-box {
+        width: 100%;
+        max-width: 430px;
+    }
+}

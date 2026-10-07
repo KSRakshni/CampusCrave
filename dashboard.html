@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CampusCrave | Dashboard</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f7f7f7;
+            color: #222;
+            min-height: 100vh;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            width: 100%;
+            height: 72px;
+
+            background: #ffffff;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            border-bottom: 1px solid #eeeeee;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 700;
+            color: #ff5a36;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #444;
+
+            font-size: 14px;
+            font-weight: 500;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff5a36;
+        }
+
+        #cartCount {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-width: 20px;
+            height: 20px;
+
+            padding: 0 5px;
+
+            margin-left: 4px;
+
+            background: #ff5a36;
+            color: white;
+
+            border-radius: 50px;
+
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .logout-btn {
+            border: none;
+
+            background: #ff5a36;
+            color: white;
+
+            padding: 10px 20px;
+
+            border-radius: 8px;
+
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 500;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #e94d2c;
+        }
+
+
+        /* =====================================================
+           DASHBOARD HEADER
+        ===================================================== */
+
+        .dashboard-header {
+            width: 86%;
+            max-width: 1250px;
+
+            margin: 42px auto 32px;
+
+            padding: 42px 45px;
+
+            background: linear-gradient(
+                135deg,
+                #fff1eb,
+                #fffaf8
+            );
+
+            border-radius: 18px;
+
+            border: 1px solid #ffe2d8;
+        }
+
+        .small-title {
+            color: #ff5a36;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            margin-bottom: 7px;
+        }
+
+        .dashboard-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+
+            color: #222;
+
+            margin-bottom: 6px;
+        }
+
+        .dashboard-header h1 span {
+            color: #ff5a36;
+        }
+
+        .dashboard-header > div > p:last-child {
+            color: #777;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           SECTIONS
+        ===================================================== */
+
+        .section {
+            width: 86%;
+            max-width: 1250px;
+
+            margin: 0 auto 45px;
+        }
+
+        .section-heading {
+            margin-bottom: 20px;
+        }
+
+        .section-heading h2 {
+            font-size: 22px;
+            font-weight: 600;
+
+            color: #222;
+
+            margin-bottom: 5px;
+        }
+
+        .section-heading p {
+            color: #888;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           QUICK GRID
+        ===================================================== */
+
+        .quick-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 22px;
+
+            width: 100%;
+        }
+
+
+        /* =====================================================
+           CARDS
+        ===================================================== */
+
+        .quick-card {
+            background: #ffffff;
+
+            border: 1px solid #eeeeee;
+
+            border-radius: 15px;
+
+            padding: 25px;
+
+            min-height: 190px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.04);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .quick-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 28px rgba(0, 0, 0, 0.08);
+        }
+
+        .quick-icon {
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #fff1ec;
+
+            border-radius: 12px;
+
+            font-size: 24px;
+
+            margin-bottom: 15px;
+        }
+
+        .quick-card h3 {
+            font-size: 17px;
+            font-weight: 600;
+
+            color: #222;
+
+            margin-bottom: 7px;
+        }
+
+        .quick-card p {
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            margin-bottom: 12px;
+        }
+
+        .quick-card button {
+            margin-top: auto;
+
+            border: none;
+
+            background: #ff5a36;
+            color: #ffffff;
+
+            padding: 9px 17px;
+
+            border-radius: 7px;
+
+            font-family: inherit;
+
+            font-size: 12px;
+            font-weight: 500;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+        }
+
+        .quick-card button:hover {
+            background: #e94d2c;
+        }
+
+
+        /* =====================================================
+           ORDER FOOD / CART / ORDERS
+        ===================================================== */
+
+        .quick-card[onclick] {
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           RECOMMENDATIONS
+        ===================================================== */
+
+        #recommendations {
+            min-height: 100px;
+        }
+
+        #recommendations .quick-card {
+            min-height: 215px;
+        }
+
+
+        /* =====================================================
+           RECENT ORDERS
+        ===================================================== */
+
+        #recentOrders {
+            min-height: 100px;
+        }
+
+        #recentOrders .quick-card {
+            min-height: 180px;
+        }
+
+
+        /* =====================================================
+           SMART CANTEEN
+        ===================================================== */
+
+        #crowdLevel,
+        #queueTime,
+        #peakHour {
+            color: #ff5a36;
+
+            font-size: 21px;
+
+            font-weight: 600;
+
+            margin-top: 2px;
+        }
+
+
+        /* =====================================================
+           SMART NOTIFICATION
+        ===================================================== */
+
+        .smart-notification {
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+
+            gap: 18px;
+
+            padding: 23px 25px;
+
+            background: #ffffff;
+
+            border: 1px solid #eeeeee;
+
+            border-left: 4px solid #ff5a36;
+
+            border-radius: 13px;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .smart-notification .quick-icon {
+            flex-shrink: 0;
+
+            margin-bottom: 0;
+        }
+
+        .smart-notification h3 {
+            font-size: 16px;
+            font-weight: 600;
+
+            margin-bottom: 5px;
+        }
+
+        .smart-notification p {
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            width: 100%;
+
+            background: #222;
+
+            color: white;
+
+            margin-top: 65px;
+
+            padding: 45px 7% 30px;
+        }
+
+        .footer-content {
+            max-width: 1250px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+        .footer-content h2 {
+            font-size: 22px;
+
+            margin-bottom: 10px;
+        }
+
+        .footer-content > p {
+            color: #aaa;
+
+            font-size: 13px;
+
+            margin-bottom: 6px;
+        }
+
+        .footer-links {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 28px;
+
+            margin: 25px 0;
+        }
+
+        .footer-links a {
+            color: #ddd;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #ff5a36;
+        }
+
+        .copyright {
+            border-top: 1px solid #3a3a3a;
+
+            padding-top: 20px;
+
+            margin-top: 20px !important;
+
+            color: #888 !important;
+
+            font-size: 12px !important;
+        }
+
+        .copyright strong {
+            color: #ccc;
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                padding: 0 4%;
+            }
+
+            .nav-links {
+                gap: 17px;
+            }
+
+            .dashboard-header,
+            .section {
+                width: 92%;
+            }
+
+            .quick-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                height: auto;
+
+                min-height: 70px;
+
+                padding: 14px 5%;
+
+                flex-wrap: wrap;
+
+                gap: 12px;
+            }
+
+            .logo {
+                font-size: 19px;
+            }
+
+            .nav-links {
+                width: 100%;
+
+                order: 3;
+
+                justify-content: center;
+
+                gap: 17px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .logout-btn {
+                padding: 8px 14px;
+            }
+
+            .dashboard-header {
+                width: 90%;
+
+                margin-top: 25px;
+
+                padding: 28px 24px;
+            }
+
+            .dashboard-header h1 {
+                font-size: 25px;
+            }
+
+            .section {
+                width: 90%;
+
+                margin-bottom: 35px;
+            }
+
+            .section-heading h2 {
+                font-size: 19px;
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr;
+
+                gap: 16px;
+            }
+
+            .quick-card {
+                min-height: 175px;
+
+                padding: 22px;
+            }
+
+            .smart-notification {
+                align-items: flex-start;
+
+                padding: 20px;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+
+                gap: 15px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🍔 CampusCrave
+    </div>
+
+    <div class="nav-links">
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="menu.html">
+            Menu
+        </a>
+
+        <a href="orders.html">
+            Orders
+        </a>
+
+        <a href="cart.html">
+            Cart
+            <span id="cartCount">0</span>
+        </a>
+
+    </div>
+
+    <button
+        class="logout-btn"
+        onclick="logout()"
+    >
+        Logout
+    </button>
+
+</nav>
+
+
+
+<!-- =====================================================
+     DASHBOARD HEADER
+===================================================== -->
+
+<section class="dashboard-header">
+
+    <div>
+
+        <p class="small-title">
+            Welcome back 👋
+        </p>
+
+        <h1>
+            Hello,
+            <span id="welcomeName">Student</span>!
+        </h1>
+
+        <p>
+            What would you like to eat today?
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     QUICK ACTIONS
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <h2>
+                Quick Actions
+            </h2>
+
+            <p>
+                Everything you need in one place.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="quick-grid">
+
+
+        <!-- ORDER FOOD -->
+
+        <div
+            class="quick-card"
+            onclick="window.location.href='menu.html'"
+        >
+
+            <div class="quick-icon">
+                🍔
+            </div>
+
+            <h3>
+                Order Food
+            </h3>
+
+            <p>
+                Browse the menu and order your favorite food.
+            </p>
+
+            <button type="button">
+                Order Now →
+            </button>
+
+        </div>
+
+
+
+        <!-- CART -->
+
+        <div
+            class="quick-card"
+            onclick="window.location.href='cart.html'"
+        >
+
+            <div class="quick-icon">
+                🛒
+            </div>
+
+            <h3>
+                My Cart
+            </h3>
+
+            <p>
+                View your selected food items.
+            </p>
+
+            <button type="button">
+                View Cart →
+            </button>
+
+        </div>
+
+
+
+        <!-- ORDERS -->
+
+        <div
+            class="quick-card"
+            onclick="window.location.href='orders.html'"
+        >
+
+            <div class="quick-icon">
+                📦
+            </div>
+
+            <h3>
+                My Orders
+            </h3>
+
+            <p>
+                Track your previous and current orders.
+            </p>
+
+            <button type="button">
+                View Orders →
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RECOMMENDATIONS
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <h2>
+                Recommended for You 🍕
+            </h2>
+
+            <p>
+                Based on your ordering history.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="quick-grid"
+        id="recommendations"
+    >
+
+        <p>
+            Loading recommendations...
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RECENT ORDERS
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <h2>
+                Recent Orders
+            </h2>
+
+            <p>
+                Your latest CampusCrave orders.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="quick-grid"
+        id="recentOrders"
+    >
+
+        <p>
+            Loading recent orders...
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SMART CANTEEN PREDICTION
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <h2>
+                🤖 Smart Canteen Prediction
+            </h2>
+
+            <p>
+                AI-powered canteen demand prediction.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="quick-grid">
+
+
+        <!-- CROWD LEVEL -->
+
+        <div class="quick-card">
+
+            <div class="quick-icon">
+                👥
+            </div>
+
+            <h3>
+                Crowd Level
+            </h3>
+
+            <h3 id="crowdLevel">
+                Medium
+            </h3>
+
+        </div>
+
+
+
+        <!-- QUEUE TIME -->
+
+        <div class="quick-card">
+
+            <div class="quick-icon">
+                ⏱️
+            </div>
+
+            <h3>
+                Estimated Queue
+            </h3>
+
+            <h3 id="queueTime">
+                10 - 15 min
+            </h3>
+
+        </div>
+
+
+
+        <!-- PEAK HOUR -->
+
+        <div class="quick-card">
+
+            <div class="quick-icon">
+                📈
+            </div>
+
+            <h3>
+                Peak Hour
+            </h3>
+
+            <h3 id="peakHour">
+                12:30 PM
+            </h3>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SMART RECOMMENDATION
+===================================================== -->
+
+<section class="section">
+
+    <div class="smart-notification">
+
+        <div class="quick-icon">
+            💡
+        </div>
+
+        <div>
+
+            <h3>
+                Smart Recommendation
+            </h3>
+
+            <p id="smartMessage">
+                CampusCrave is analyzing today's
+                canteen demand...
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <h2>
+            🍔 CampusCrave
+        </h2>
+
+        <p>
+            Smart Campus Food Ordering System
+        </p>
+
+        <p>
+            Fresh Food • Fast Delivery • Zero Queue
+        </p>
+
+
+        <div class="footer-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="menu.html">
+                Menu
+            </a>
+
+            <a href="cart.html">
+                Cart
+            </a>
+
+            <a href="orders.html">
+                Orders
+            </a>
+
+        </div>
+
+
+        <p class="copyright">
+
+            © 2026 CampusCrave |
+            Developed by
+            <strong>
+                K.S. Rakshni & Harini.T
+            </strong>
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="./dashboard.js"></script>
+
+
+</body>
+
+</html>

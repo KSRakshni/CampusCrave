@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusCrave - Payment</title>
+
+    <link rel="stylesheet" href="payment.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">CampusCrave 🍴</div>
+
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="menu.html">Menu</a>
+            <a href="cart.html">Cart 🛒</a>
+            <a href="orders.html">My Orders</a>
+        </div>
+    </nav>
+
+
+    <main class="payment-container">
+
+        <h1>Complete Your Payment</h1>
+        <p class="subtitle">Choose your preferred payment method</p>
+
+
+        <!-- ORDER SUMMARY -->
+
+        <section class="order-summary">
+
+            <h2>Order Summary</h2>
+
+            <div id="orderItems"></div>
+
+            <div class="total-row">
+                <span>Subtotal</span>
+                <span id="subtotal">₹0</span>
+            </div>
+
+            <div class="total-row">
+                <span>Delivery Fee</span>
+                <span id="deliveryFee">₹0</span>
+            </div>
+
+            <div class="grand-total">
+                <span>Total Amount</span>
+                <span id="totalAmount">₹0</span>
+            </div>
+
+        </section>
+
+
+        <!-- PAYMENT METHODS -->
+
+        <section class="payment-method">
+
+            <h2>Payment Method</h2>
+
+            <div class="payment-options">
+
+                <button
+                    type="button"
+                    class="payment-option"
+                    id="cashOption"
+                    onclick="selectPayment('cash')">
+
+                    <span class="payment-icon">💵</span>
+
+                    <div>
+                        <strong>Pay by Cash</strong>
+                        <small>Pay when you receive your order</small>
+                    </div>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="payment-option"
+                    id="upiOption"
+                    onclick="selectPayment('upi')">
+
+                    <span class="payment-icon">📱</span>
+
+                    <div>
+                        <strong>Pay by UPI</strong>
+                        <small>Scan QR code and pay securely</small>
+                    </div>
+
+                </button>
+
+            </div>
+
+
+            <!-- CASH SECTION -->
+
+            <div id="cashPayment" class="payment-box">
+
+                <div class="cash-icon">💵</div>
+
+                <h3>Cash on Delivery</h3>
+
+                <p>
+                    You can pay the amount in cash when your food is delivered.
+                </p>
+
+            </div>
+
+
+            <!-- UPI SECTION -->
+
+            <div id="upiPayment" class="payment-box">
+
+                <h3>📱 Scan & Pay</h3>
+
+                <p>Scan the QR code using any UPI app</p>
+
+                <div class="qr-container">
+
+                    <!-- Demo QR -->
+                    <img
+                        id="qrCode"
+                        src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=CampusCrave-UPI-Payment"
+                        alt="UPI QR Code">
+
+                </div>
+
+                <div class="upi-id">
+                    UPI ID: <strong>campuscrave@upi</strong>
+                </div>
+
+                <p class="qr-note">
+                    Open Google Pay, PhonePe, Paytm or another UPI app
+                    and scan this QR code.
+                </p>
+
+                <button
+                    type="button"
+                    class="payment-done-btn"
+                    onclick="paymentCompleted()">
+
+                    ✓ Payment Done
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- PLACE ORDER -->
+
+        <button
+            id="placeOrderBtn"
+            class="place-order-btn"
+            onclick="placeOrder()">
+
+            Select Payment Method
+
+        </button>
+
+
+        <button
+            class="back-btn"
+            onclick="window.location.href='cart.html'">
+
+            ← Back to Cart
+
+        </button>
+
+    </main>
+
+
+    <script src="payment.js"></script>
+
+</body>
+</html>

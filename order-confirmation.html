@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        CampusCrave - Order Confirmed
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="order-confirmation.css?v=3">
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        defer></script>
+
+    <!-- QR CODE LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            CampusCrave 🍴
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="menu.html">
+                Menu
+            </a>
+
+            <a href="cart.html">
+                Cart 🛒
+            </a>
+
+            <a href="orders.html">
+                My Orders
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="confirmation-container">
+
+
+        <!-- SUCCESS -->
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+
+        <h1>
+            Order Placed Successfully!
+        </h1>
+
+
+        <p class="success-text">
+            Thank you for ordering with CampusCrave.
+        </p>
+
+
+
+        <!-- =========================
+             ORDER ID
+        ========================== -->
+
+        <div class="order-id-box">
+
+            <span>
+                Order ID
+            </span>
+
+            <strong id="orderId">
+                CC000000
+            </strong>
+
+        </div>
+
+
+
+        <!-- =========================
+             READY TIME
+        ========================== -->
+
+        <section class="ready-card">
+
+            <div class="ready-icon">
+                🍔
+            </div>
+
+            <div class="ready-content">
+                <h2>Your Food Will Be Ready</h2>
+                <div id="readyTime" class="ready-time">Calculating...</div>
+                <p>Estimated preparation time: <strong id="preparationTime">--</strong></p>
+            </div>
+
+        </section>
+
+        <!-- =========================
+             CROWD
+        ========================== -->
+
+        <section class="crowd-card">
+            <h2>🧑‍🤝‍🧑 Canteen Crowd Status</h2>
+
+            <div class="crowd-info">
+                <div id="crowdEmoji" class="crowd-emoji">🟡</div>
+                <div>
+                    <div id="crowdLevel" class="crowd-level">Medium</div>
+                    <p id="crowdMessage">The canteen has a moderate crowd.</p>
+                </div>
+            </div>
+
+            <div class="crowd-note">
+                ⏱️ Your food-ready time is estimated based on the current canteen crowd.
+            </div>
+        </section>
+
+        <!-- =========================
+             PAYMENT
+        ========================== -->
+
+        <section class="payment-info">
+
+            <h2>
+                Payment Details
+            </h2>
+
+
+            <div class="info-row">
+
+                <span>
+                    Payment Method
+                </span>
+
+                <strong id="paymentMethod">
+                    Cash on Delivery
+                </strong>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <span>
+                    Total Amount
+                </span>
+
+                <strong id="totalAmount">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <span>
+                    Order Status
+                </span>
+
+                <strong
+                    id="orderStatus"
+                    class="status">
+
+                    Order Placed
+
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             QR CODE SECTION
+        ================================================== -->
+
+        <section class="qr-card">
+            <div class="qr-header">
+                <div class="qr-icon">📱</div>
+                <div>
+                    <h2>Your Pickup QR Code</h2>
+                    <p>Show this QR code at the canteen counter to collect your food.</p>
+                </div>
+            </div>
+
+            <div id="qrcode" class="qrcode"></div>
+
+            <div class="qr-order-id">
+                <span>Pickup Order</span>
+                <strong id="qrOrderId">--</strong>
+            </div>
+
+            <p class="qr-note">🔐 This QR code identifies your CampusCrave order.</p>
+        </section>
+
+        <section id="liveTracking" class="tracking-card">
+            <div class="tracking-heading">
+                <div>
+                    <span class="tracking-kicker">ORDER TRACKING · DEMO</span>
+                    <h2 id="trackingStatus">Finding your rider...</h2>
+                    <p id="trackingMessage">Loading the demo route.</p>
+                </div>
+                <div class="tracking-eta">
+                    <span>ESTIMATED ARRIVAL</span>
+                    <strong id="trackingEta">-- min</strong>
+                </div>
+            </div>
+            <div class="tracking-progress" aria-label="Delivery progress">
+                <div id="trackingProgress" class="tracking-progress-fill"></div>
+            </div>
+            <div id="orderMap" class="order-map" role="region" aria-label="Simulated order delivery map"></div>
+            <div class="tracking-legend">
+                <span><i class="legend-dot canteen-dot"></i> Campus canteen</span>
+                <span><i class="legend-dot rider-dot"></i> Demo rider</span>
+                <span><i class="legend-dot pickup-dot"></i> Pickup point</span>
+            </div>
+            <p class="tracking-disclaimer">Demo route only. This prototype does not receive a rider's real GPS location.</p>
+            <p id="trackingError" class="tracking-error" role="status"></p>
+        </section>
+
+
+
+        <!-- =========================
+             BUTTONS
+        ========================== -->
+
+        <div class="buttons">
+
+
+            <button
+                class="primary-btn"
+                onclick="trackMyOrder()">
+
+                📦 Track My Order
+
+            </button>
+
+
+            <button
+                class="secondary-btn"
+                onclick="window.location.href='menu.html'">
+
+                🍔 Order More Food
+
+            </button>
+
+
+            <button
+                class="dashboard-btn"
+                onclick="window.location.href='dashboard.html'">
+
+                ← Back to Dashboard
+
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+
+            © 2026 CampusCrave.
+            Smart Food Ordering for Smart Campuses.
+
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        let trackingMap = null;
+        let riderMarker = null;
+
+        function trackMyOrder() {
+            document.getElementById("liveTracking").scrollIntoView({ behavior: "smooth" });
+            refreshOrderTracking();
+        }
+
+        function initializeTrackingMap(tracking) {
+            if (!window.L) {
+                document.getElementById("trackingError").textContent = "Map tiles are unavailable. Check your internet connection.";
+                return;
+            }
+
+            const route = tracking.route.map(point => [point.latitude, point.longitude]);
+            trackingMap = L.map("orderMap", { scrollWheelZoom: false });
+            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                maxZoom: 19,
+                attribution: "© OpenStreetMap contributors"
+            }).addTo(trackingMap);
+            const routeLine = L.polyline(route, {
+                color: "#e46f3a",
+                weight: 5,
+                opacity: 0.85
+            }).addTo(trackingMap);
+            L.circleMarker(route[0], {
+                radius: 8,
+                color: "#fff",
+                weight: 3,
+                fillColor: "#347b54",
+                fillOpacity: 1
+            }).bindPopup(tracking.origin.name).addTo(trackingMap);
+            L.circleMarker(route[route.length - 1], {
+                radius: 8,
+                color: "#fff",
+                weight: 3,
+                fillColor: "#5b6e91",
+                fillOpacity: 1
+            }).bindPopup(tracking.destination.name).addTo(trackingMap);
+            riderMarker = L.marker(route[0], {
+                icon: L.divIcon({
+                    className: "rider-map-icon",
+                    html: '<span class="rider-map-emoji">🛵</span>',
+                    iconSize: [42, 42],
+                    iconAnchor: [21, 21]
+                })
+            }).addTo(trackingMap);
+            trackingMap.fitBounds(routeLine.getBounds(), { padding: [28, 28] });
+        }
+
+        async function refreshOrderTracking() {
+            const trackingError = document.getElementById("trackingError");
+
+            try {
+                const apiBase = "http://127.0.0.1:5000/api";
+                const savedOrder = JSON.parse(localStorage.getItem("campuscrave_last_order") || "null");
+                let orderId = savedOrder && (savedOrder.databaseId || savedOrder.id);
+
+                if (!orderId) {
+                    const userId = localStorage.getItem("campuscrave_session");
+                    if (!userId) throw new Error("Sign in to track your order.");
+                    const ordersResponse = await fetch(`${apiBase}/orders/user/${encodeURIComponent(userId)}`);
+                    if (!ordersResponse.ok) throw new Error("Unable to load your orders.");
+                    const orders = await ordersResponse.json();
+                    if (!orders.length) throw new Error("No orders were found for this account.");
+                    orderId = orders[0].id;
+                }
+
+                const response = await fetch(`${apiBase}/orders/${encodeURIComponent(orderId)}/tracking`);
+                const tracking = await response.json();
+                if (!response.ok) throw new Error(tracking.error || "Unable to track this order.");
+
+                document.getElementById("orderId").textContent = tracking.order_code;
+                document.getElementById("qrOrderId").textContent = tracking.order_code;
+                document.getElementById("trackingStatus").textContent = tracking.tracking_status;
+                document.getElementById("trackingMessage").textContent = tracking.message;
+                document.getElementById("trackingEta").textContent = tracking.eta_minutes === 0
+                    ? "Arrived"
+                    : `${tracking.eta_minutes} min`;
+                document.getElementById("trackingProgress").style.width = `${tracking.progress * 100}%`;
+                trackingError.textContent = "";
+
+                if (!trackingMap) initializeTrackingMap(tracking);
+                if (trackingMap && riderMarker) {
+                    riderMarker.setLatLng([tracking.courier.latitude, tracking.courier.longitude]);
+                    trackingMap.invalidateSize();
+                }
+            } catch (error) {
+                trackingError.textContent = error.message || "Unable to reach the tracking service.";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            refreshOrderTracking();
+            window.setInterval(refreshOrderTracking, 15000);
+        });
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                const orderData =
+                    localStorage.getItem(
+                        "campuscrave_last_order"
+                    );
+
+
+                if (!orderData) {
+
+                    document.getElementById(
+                        "readyTime"
+                    ).textContent =
+                        "Order information unavailable";
+
+                    return;
+                }
+
+
+                let order;
+
+
+                try {
+
+                    order =
+                        JSON.parse(orderData);
+
+                } catch (error) {
+
+                    console.error(
+                        "Invalid order data:",
+                        error
+                    );
+
+                    return;
+                }
+
+
+
+                /* =========================
+                   ORDER ID
+                ========================== */
+
+                document.getElementById(
+                    "orderId"
+                ).textContent =
+                    order.id || "N/A";
+
+
+                document.getElementById(
+                    "qrOrderId"
+                ).textContent =
+                    order.id || "N/A";
+
+
+
+                /* =========================
+                   READY TIME
+                ========================== */
+
+                document.getElementById(
+                    "readyTime"
+                ).textContent =
+                    order.readyTime ||
+                    "15 - 25 minutes";
+
+
+
+                /* =========================
+                   PREPARATION
+                ========================== */
+
+                document.getElementById(
+                    "preparationTime"
+                ).textContent =
+                    order.preparationTime ||
+                    "15-25 minutes";
+
+
+
+                /* =========================
+                   CROWD
+                ========================== */
+
+                document.getElementById(
+                    "crowdEmoji"
+                ).textContent =
+                    order.crowdEmoji ||
+                    "🟡";
+
+
+                document.getElementById(
+                    "crowdLevel"
+                ).textContent =
+                    order.crowdLevel ||
+                    "Medium";
+
+
+                document.getElementById(
+                    "crowdMessage"
+                ).textContent =
+                    order.crowdMessage ||
+                    "The canteen has a moderate crowd.";
+
+
+
+                /* =========================
+                   PAYMENT
+                ========================== */
+
+                document.getElementById(
+                    "paymentMethod"
+                ).textContent =
+                    order.paymentMethod ||
+                    "Cash on Delivery";
+
+
+
+                /* =========================
+                   TOTAL
+                ========================== */
+
+                document.getElementById(
+                    "totalAmount"
+                ).textContent =
+                    `₹${order.total || 0}`;
+
+
+
+                /* =========================
+                   STATUS
+                ========================== */
+
+                document.getElementById(
+                    "orderStatus"
+                ).textContent =
+                    order.status ||
+                    "Order Placed";
+
+
+
+                /* =================================================
+                   CREATE QR CODE
+                ================================================= */
+
+                const qrContainer =
+                    document.getElementById(
+                        "qrcode"
+                    );
+
+
+                qrContainer.innerHTML = "";
+
+
+                /*
+                    QR DATA
+
+                    The scanner will receive this
+                    JSON information.
+                */
+
+                const qrData = JSON.stringify({
+
+                    type:
+                        "CampusCrave-Pickup",
+
+                    orderId:
+                        order.id || "",
+
+                    studentId:
+                        order.studentId ||
+                        order.userId ||
+                        "",
+
+                    total:
+                        order.total || 0,
+
+                    paymentMethod:
+                        order.paymentMethod || "",
+
+                    status:
+                        order.status ||
+                        "Order Placed"
+
+                });
+
+
+                new QRCode(
+                    qrContainer,
+                    {
+                        text: qrData,
+
+                        width: 220,
+
+                        height: 220,
+
+                        correctLevel:
+                            QRCode.CorrectLevel.H
+                    }
+                );
+
+
+
+                /*
+                    Save QR data
+                */
+
+                localStorage.setItem(
+                    "campuscrave_pickup_qr",
+                    qrData
+                );
+
+            }
+
+        );
+
+    </script>
+
+
+</body>
+
+</html>
